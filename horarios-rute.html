@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Setembro a Dezembro de 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 0.75fr repeat(7, 1fr);
+            gap: 1px;
+            background-color: #e2e8f0; /* bg-slate-300 */
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .schedule-cell, .header-cell, .time-slot {
+            background-color: #ffffff;
+            padding: 0.75rem;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-cell {
+            font-weight: 600;
+            text-align: center;
+            background-color: #f1f5f9; /* bg-slate-100 */
+            color: #1e293b; /* text-slate-800 */
+        }
+        .time-slot {
+            font-weight: 500;
+            background-color: #f8fafc; /* bg-slate-50 */
+            color: #475569; /* text-slate-600 */
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .event {
+            font-size: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            margin-top: 0.25rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .event-livre {
+            /* No specific style needed, will remain plain */
+        }
+        .event-trabalho {
+            background-color: #059669; /* bg-emerald-600 */
+        }
+        .event-atendimento {
+            background-color: #4f46e5; /* bg-indigo-600 */
+        }
+        .event-aula {
+            background-color: #2563eb; /* bg-blue-600 */
+        }
+        .event-feriado {
+            background-color: #64748b; /* bg-slate-500 */
+            text-align: center;
+        }
+        .conflict {
+            background-color: #fef2f2; /* bg-red-50 */
+            border: 2px solid #ef4444; /* border-red-500 */
+            position: relative;
+        }
+        .conflict-title {
+            color: #b91c1c; /* text-red-700 */
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .conflict-item {
+            font-size: 0.8rem;
+            color: #450a0a; /* text-red-900 */
+        }
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-cell {
+                display: none;
+            }
+            .schedule-cell::before {
+                content: attr(data-day);
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: #1e293b;
+            }
+             .time-slot {
+                grid-column: 1 / -1;
+                border-bottom: 1px solid #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-slate-800">Minha Agenda</h1>
+            <p class="text-lg text-slate-600 mt-2">Planejamento de Setembro a Dezembro de 2025</p>
+        </header>
+
+        <!-- Setembro -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 border-b-2 border-slate-300 pb-2">Setembro 2025</h2>
+            
+            <!-- Semana 1 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 1 (01 a 07 de setembro)</h3>
+                <div class="schedule-grid">
+                    <div class="header-cell">Período</div>
+                    <div class="header-cell">Segunda</div>
+                    <div class="header-cell">Terça</div>
+                    <div class="header-cell">Quarta</div>
+                    <div class="header-cell">Quinta</div>
+                    <div class="header-cell">Sexta</div>
+                    <div class="header-cell">Sábado</div>
+                    <div class="header-cell">Domingo</div>
+
+                    <!-- Linha 07:00 - 08:00 -->
+                    <div class="time-slot">07:00 - 08:00</div>
+                    <div class="schedule-cell" data-day="Segunda"></div><div class="schedule-cell" data-day="Terça"></div><div class="schedule-cell" data-day="Quarta"></div><div class="schedule-cell" data-day="Quinta"></div><div class="schedule-cell" data-day="Sexta"></div><div class="schedule-cell" data-day="Sábado"></div><div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"></div><div class="schedule-cell" data-day="Terça"></div><div class="schedule-cell" data-day="Quarta"></div><div class="schedule-cell" data-day="Quinta"></div><div class="schedule-cell" data-day="Sexta"></div><div class="schedule-cell" data-day="Sábado"></div><div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 12:00 - 13:00 -->
+                    <div class="time-slot">12:00 - 13:00</div>
+                    <div class="schedule-cell" data-day="Segunda"></div><div class="schedule-cell" data-day="Terça"></div><div class="schedule-cell" data-day="Quarta"></div><div class="schedule-cell" data-day="Quinta"></div><div class="schedule-cell" data-day="Sexta"></div><div class="schedule-cell" data-day="Sábado"></div><div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 19:00 -->
+                    <div class="time-slot">13:00 - 19:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 19:15 - 20:45 -->
+                    <div class="time-slot">19:15 - 20:45</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+            <!-- Semana 2 -->
+             <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 2 (08 a 14 de setembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+
+                    <!-- Linha 13:00 - 18:00 -->
+                    <div class="time-slot">13:00 - 18:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Terça">
+                        <span class="conflict-title">ALERTA DE CONFLITO</span>
+                        <span class="conflict-item">- Territórios, Ambiente e Saúde</span>
+                        <span class="conflict-item">- Trabalho - Hospital</span>
+                    </div>
+                    <div class="schedule-cell conflict" data-day="Quarta">
+                        <span class="conflict-title">ALERTA DE CONFLITO</span>
+                        <span class="conflict-item">- Territórios, Ambiente e Saúde</span>
+                        <span class="conflict-item">- Trabalho - Hospital</span>
+                    </div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-aula">Territórios, Ambiente e Saúde (inicia 14h)</span></div>
+                    <div class="schedule-cell conflict" data-day="Sexta">
+                        <span class="conflict-title">ALERTA DE CONFLITO</span>
+                        <span class="conflict-item">- Territórios, Ambiente e Saúde</span>
+                        <span class="conflict-item">- Trabalho - Hospital</span>
+                    </div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+
+                    <!-- Linha 18:00 - 19:00 -->
+                    <div class="time-slot">18:00 - 19:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+
+                    <!-- Linha 19:15 - 20:45 -->
+                    <div class="time-slot">19:15 - 20:45</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+            <!-- Semana 3 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 3 (15 a 21 de setembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+                    
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-aula">Territórios, Ambiente e Saúde</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Estado da Arte da Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-aula">Estado da Arte da Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Estado da Arte da Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 18:00 -->
+                    <div class="time-slot">13:00 - 18:00</div>
+                    <div class="schedule-cell conflict" data-day="Segunda">
+                        <span class="conflict-title">ALERTA DE CONFLITO</span>
+                        <span class="conflict-item">- Territórios, Ambiente e Saúde</span>
+                        <span class="conflict-item">- Trabalho - Hospital</span>
+                    </div>
+                    <div class="schedule-cell conflict" data-day="Terça">
+                        <span class="conflict-title">ALERTA DE CONFLITO</span>
+                        <span class="conflict-item">- Territórios, Ambiente e Saúde</span>
+                        <span class="conflict-item">- Trabalho - Hospital</span>
+                    </div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- O resto da semana segue o padrão -->
+                    <div class="time-slot">18:00 - 19:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+
+                    <div class="time-slot">19:15 - 20:45</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-atendimento">Atendimento Online</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+
+                </div>
+            </div>
+
+            <!-- Semana 4 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 4 (22 a 28 de setembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+                    
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 18:00 -->
+                    <div class="time-slot">13:00 - 18:00</div>
+                    <div class="schedule-cell conflict" data-day="Segunda"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Interdisciplinaridade</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Terça"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Interdisciplinaridade</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Quarta"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Interdisciplinaridade</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Quinta"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Interdisciplinaridade</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Sexta"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Interdisciplinaridade</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+            <!-- Semana 5 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 5 (29 de setembro a 05 de outubro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Interdisciplinaridade</span></div>
+                    <div class="schedule-cell" data-day="Terça"></div><div class="schedule-cell" data-day="Quarta"></div><div class="schedule-cell" data-day="Quinta"></div><div class="schedule-cell" data-day="Sexta"></div><div class="schedule-cell" data-day="Sábado"></div><div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 18:00 -->
+                    <div class="time-slot">13:00 - 18:00</div>
+                    <div class="schedule-cell conflict" data-day="Segunda"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Seminário de Pesquisa</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Quarta"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Seminário de Pesquisa</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell conflict" data-day="Sexta"><span class="conflict-title">ALERTA DE CONFLITO</span><span class="conflict-item">- Seminário de Pesquisa</span><span class="conflict-item">- Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Outubro -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 border-b-2 border-slate-300 pb-2">Outubro 2025</h2>
+            
+            <!-- Semanas 1 e 2 -->
+             <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semanas 1 e 2 (06 a 19 de outubro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                     <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Docente no Ensino Superior</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-aula">Docente no Ensino Superior</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Docente no Ensino Superior (S1)</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-aula">Docente no Ensino Superior (S1)</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Docente no Ensino Superior (S1)</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 19:00 -->
+                    <div class="time-slot">13:00 - 19:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+            <p class="text-slate-600 italic mt-4"> (As semanas de 20 a 31 de outubro não possuem aulas e seguem o padrão da primeira semana de setembro.)</p>
+        </section>
+
+        <!-- Novembro -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 border-b-2 border-slate-300 pb-2">Novembro 2025</h2>
+            <p class="text-slate-600 italic mb-6"> (As semanas de 01 a 23 de novembro não possuem aulas e seguem o padrão da primeira semana de setembro.)</p>
+            
+            <!-- Semana 4 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 4 (24 a 30 de novembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                     <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Terça"></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Quinta"></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                    
+                    <!-- Linha 13:00 - 19:00 (Padrão) -->
+                    <div class="time-slot">13:00 - 19:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Quinta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Sábado"><span class="event event-trabalho">Trabalho - Hospital</span></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dezembro -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 border-b-2 border-slate-300 pb-2">Dezembro 2025</h2>
+            
+            <!-- Semana 1 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 1 (01 a 07 de dezembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                     <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Estado da Arte da Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Terça"></div><div class="schedule-cell" data-day="Quarta"></div><div class="schedule-cell" data-day="Quinta"></div><div class="schedule-cell" data-day="Sexta"></div><div class="schedule-cell" data-day="Sábado"></div><div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+            <!-- Semana 2 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 2 (08 a 14 de dezembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-feriado">FERIADO</span></div>
+                    <div class="schedule-cell" data-day="Terça"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Quinta"></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+
+            <!-- Semana 3 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-slate-600 mb-4">Semana 3 (15 a 21 de dezembro)</h3>
+                <div class="schedule-grid">
+                    <!-- ... headers ... -->
+                    <div class="header-cell">Período</div><div class="header-cell">Segunda</div><div class="header-cell">Terça</div><div class="header-cell">Quarta</div><div class="header-cell">Quinta</div><div class="header-cell">Sexta</div><div class="header-cell">Sábado</div><div class="header-cell">Domingo</div>
+
+                    <!-- Linha 08:00 - 12:00 -->
+                    <div class="time-slot">08:00 - 12:00</div>
+                    <div class="schedule-cell" data-day="Segunda"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Terça"></div>
+                    <div class="schedule-cell" data-day="Quarta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Quinta"></div>
+                    <div class="schedule-cell" data-day="Sexta"><span class="event event-aula">Seminário de Pesquisa</span></div>
+                    <div class="schedule-cell" data-day="Sábado"></div>
+                    <div class="schedule-cell" data-day="Domingo"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
